@@ -12,13 +12,25 @@
   "bugs": {
     "url": "https://github.com/rdarida/cross-platform-zip/issues"
   },
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "cross-platform-zip": "./dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "lint": "tsc",
-    "prettier": "prettier . --check"
+    "prettier": "prettier . --check",
+    "prebuild": "rimraf dist",
+    "build": "tsup ./src/index.ts ./src/cli.ts --format cjs --dts --minify",
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "prettier": "^3.4.2",
+    "rimraf": "^6.0.1",
+    "tsup": "^8.3.5",
     "typescript": "^5.7.2"
   },
   "keywords": []
