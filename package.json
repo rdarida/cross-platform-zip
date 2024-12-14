@@ -1,0 +1,20 @@
+{
+  "name": "cross-platform-zip",
+  "version": "0.0.0",
+  "description": "",
+  "license": "MIT",
+  "author": "Róbert Darida",
+  "homepage": "https://github.com/rdarida/cross-platform-zip#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rdarida/cross-platform-zip.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rdarida/cross-platform-zip/issues"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": []
+}
