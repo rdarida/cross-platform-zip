@@ -50,11 +50,9 @@
   "keywords": [
     "zip",
     "unzip",
-    "cross platform",
     "cross-platform",
     "linux",
-    "mac",
-    "os x",
+    "macosx",
     "windows"
   ]
 }
