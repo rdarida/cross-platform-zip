@@ -1,8 +1,0 @@
-coverage
-dist
-docs
-
-package-lock.json
-tsconfig.json
-
-*.md
