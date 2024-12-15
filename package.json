@@ -25,11 +25,14 @@
     "prettier": "prettier . --check",
     "prebuild": "rimraf dist",
     "build": "tsup ./src/index.ts ./src/cli.ts --format cjs --dts --minify",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "release": "standard-version",
+    "postrelease": "git push --follow-tags origin HEAD"
   },
   "devDependencies": {
     "prettier": "^3.4.2",
     "rimraf": "^6.0.1",
+    "standard-version": "^9.5.0",
     "tsup": "^8.3.5",
     "typescript": "^5.7.2"
   },
