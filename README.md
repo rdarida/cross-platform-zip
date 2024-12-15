@@ -1,5 +1,16 @@
 <h1 align="center">cross-platform-zip</h1>
 <p align="center">Cross-platform zip/unzip for Node.js.</p>
+<p align="center">
+  <a href="https://github.com/rdarida/cross-platform-zip" target="_blank">
+    <img src="https://img.shields.io/badge/-repository-222222?style=flat&logo=github" />
+  </a>
+
+  <a href="https://github.com/rdarida/cross-platform-zip/actions/workflows/release.yml" target="_blank" alt="GitHub Actions">
+    <img src="https://github.com/rdarida/cross-platform-zip/actions/workflows/release.yml/badge.svg" alt="Release">
+  </a>
+  
+  <img src="https://img.shields.io/librariesio/release/npm/cross-platform-zip">
+</p>
 <hr>
 
 <details>
