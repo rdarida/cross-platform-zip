@@ -39,7 +39,7 @@ jobs:
       - name: Generate documentation
         run: npm run docs
 
-      - name: Copy coverage into docs
+      - name: Move coverage into docs
         run: mv coverage/lcov-report docs/coverage
 
       # - name: Deploy documentation
