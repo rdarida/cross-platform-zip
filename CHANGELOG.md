@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.0.4 (2024-12-15)
+
+
+### Features
+
+* generate docs and push into gh-pages ([c549561](https://github.com/rdarida/cross-platform-zip/commit/c549561315e05da335cbc3aecea74667c2b7818f))
+
 ### 0.0.3 (2024-12-15)
 
 
