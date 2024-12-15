@@ -1,7 +1,7 @@
 {
   "name": "cross-platform-zip",
   "version": "0.0.0",
-  "description": "",
+  "description": "Cross-platform zip/unzip for Node.js.",
   "license": "MIT",
   "author": "Róbert Darida",
   "homepage": "https://github.com/rdarida/cross-platform-zip#readme",
