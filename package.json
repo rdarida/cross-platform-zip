@@ -47,5 +47,14 @@
     "tsup": "^8.3.5",
     "typescript": "^5.7.2"
   },
-  "keywords": []
+  "keywords": [
+    "zip",
+    "unzip",
+    "cross platform",
+    "cross-platform",
+    "linux",
+    "mac",
+    "os x",
+    "windows"
+  ]
 }
