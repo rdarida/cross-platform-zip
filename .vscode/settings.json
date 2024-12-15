@@ -18,6 +18,7 @@
     "CHANGELOG.md": true,
     "jest.config.js": true,
     "LICENSE": true,
-    "package-lock.json": true
+    "package-lock.json": true,
+    "sonar-project.properties": true
   }
 }
