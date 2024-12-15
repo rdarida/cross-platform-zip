@@ -15,7 +15,8 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": {
-    "cross-platform-zip": "./dist/cli.js"
+    "cross-platform-zip": "./dist/cli.js",
+    "cpzip": "./dist/cli.js"
   },
   "files": [
     "dist"
