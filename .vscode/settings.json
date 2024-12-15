@@ -9,6 +9,7 @@
     // Directories
     "coverage": true,
     "dist": true,
+    "docs": true,
     "node_modules": true,
     // Files
     ".editorconfig": true,
