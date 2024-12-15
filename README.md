@@ -1,6 +1,8 @@
 <h1 align="center">cross-platform-zip</h1>
 <p align="center">Cross-platform zip/unzip for Node.js.</p>
 <p align="center">
+  ![Static Badge](https://img.shields.io/badge/website-blue?link=https%3A%2F%2Frdarida.github.io%2Fcross-platform-zip%2F)
+
   <a href="https://github.com/rdarida/cross-platform-zip" target="_blank">
     <img src="https://img.shields.io/badge/-repository-222222?style=flat&logo=github" />
   </a>
