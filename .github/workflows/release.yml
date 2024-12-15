@@ -36,23 +36,23 @@ jobs:
           npm run lint
           npm test -- --collectCoverage
 
-      - name: Generate documentation
-        run: npm run docs
-
-      - name: Move coverage into docs
-        run: mv coverage/lcov-report docs/coverage
-
-      # - name: Deploy documentation
-      #   uses: rdarida/simple-github-pages-deploy-action@v1
-      #   with:
-      #     git-user: 'github-actions[bot]'
-      #     git-email: 'github-actions[bot]@users.noreply.github.com'
-      #     git-base-folder: 'docs'
-      #     commit-message: 'Automatic deploy'
-
       - name: Publish
         run: |
           npm run release
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+
+      - name: Generate documentation
+        run: npm run docs
+
+      - name: Move coverage into docs
+        run: mv coverage/lcov-report docs/coverage
+
+      - name: Deploy documentation
+        uses: rdarida/simple-github-pages-deploy-action@v1
+        with:
+          git-user: 'github-actions[bot]'
+          git-email: 'github-actions[bot]@users.noreply.github.com'
+          git-base-folder: 'docs'
+          commit-message: 'Automatic deploy'
