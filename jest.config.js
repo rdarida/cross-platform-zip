@@ -11,7 +11,8 @@ module.exports = async () => {
     coveragePathIgnorePatterns: [
       ...defaults.coveragePathIgnorePatterns,
       '/dist/',
-      '/src/cli.ts',
+      '/src/zip-cli.ts',
+      '/src/unzip-cli.ts',
       '/tests/'
     ]
   };
