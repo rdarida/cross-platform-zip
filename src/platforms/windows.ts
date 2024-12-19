@@ -1,3 +1,5 @@
+import { execFileSync } from 'child_process';
+
 /**
  * Creates a compressed archive, or zipped file,
  * from specified files and folders.
@@ -9,9 +11,25 @@
  * @param dest Specifies the path to the archive output file.
  */
 export function zipSync(path: string | string[], dest: string): void {
-  console.log('windows.zipSync');
-  console.log(path);
-  console.log(dest);
+  if (!Array.isArray(path)) {
+    path = [path];
+  }
+
+  execFileSync(
+    'powershell.exe',
+    [
+      'Compress-Archive',
+      '-Path',
+      path.map(p => `"${p}"`).join(', '),
+      '-DestinationPath',
+      `"${dest}"`,
+      '-Force'
+    ],
+    {
+      maxBuffer: Infinity,
+      windowsHide: true
+    }
+  );
 }
 
 /**
@@ -22,7 +40,19 @@ export function zipSync(path: string | string[], dest: string): void {
  * @param dest Specifies the path to the output folder.
  */
 export function unzipSync(path: string | string[], dest: string): void {
-  console.log('windows.unzipSync');
-  console.log(path);
-  console.log(dest);
+  execFileSync(
+    'powershell.exe',
+    [
+      'Expand-Archive',
+      '-Path',
+      `"${path}"`,
+      '-DestinationPath',
+      `"${dest}"`,
+      '-Force'
+    ],
+    {
+      maxBuffer: Infinity,
+      windowsHide: true
+    }
+  );
 }
