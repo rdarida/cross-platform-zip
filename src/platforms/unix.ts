@@ -11,9 +11,6 @@ import { execFileSync } from 'child_process';
  * @param dest Specifies the path to the archive output file.
  */
 export function zipSync(path: string | string[], dest: string): void {
-  console.log('unix.zipSync');
-  console.log(path);
-  console.log(dest);
 }
 
 /**
