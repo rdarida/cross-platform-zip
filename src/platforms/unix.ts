@@ -11,6 +11,18 @@ import { execFileSync } from 'child_process';
  * @param dest Specifies the path to the archive output file.
  */
 export function zipSync(path: string | string[], dest: string): void {
+  if (!Array.isArray(path)) {
+    path = [path];
+  }
+
+  execFileSync(
+    'zip',
+    ['-r', '-y', `"${dest}"`, path.map(p => `"${p}"`).join(' ')],
+    {
+      maxBuffer: Infinity,
+      windowsHide: true
+    }
+  );
 }
 
 /**
@@ -21,7 +33,7 @@ export function zipSync(path: string | string[], dest: string): void {
  * @param dest Specifies the path to the output folder.
  */
 export function unzipSync(path: string, dest: string): void {
-  execFileSync('unzip', ['-o', path, '-d', dest], {
+  execFileSync('unzip', ['-o', `"${path}"`, '-d', `"${dest}"`], {
     maxBuffer: Infinity,
     windowsHide: true
   });

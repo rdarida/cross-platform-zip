@@ -27,10 +27,6 @@ describe('Test exports', () => {
   });
 
   test('zip "[test data 1.txt, test data 2.txt]" with zipSync', () => {
-    if (process.platform !== 'win32') {
-      return;
-    }
-
     zipSync([TXT1_DATA, TXT2_DATA], ZIPPED);
     unzipSync(ZIPPED, DIST_FOLDER);
 
