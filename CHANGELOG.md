@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.9](https://github.com/rdarida/cross-platform-zip/compare/v0.0.8...v0.0.9) (2024-12-19)
+
+
+### Features
+
+* implement zipSync and unzipSync for windows platform ([441b7d6](https://github.com/rdarida/cross-platform-zip/commit/441b7d677dfab7bc163761f6a63d0be4fe4d62f0))
+
 ### [0.0.8](https://github.com/rdarida/cross-platform-zip/compare/v0.0.7...v0.0.8) (2024-12-19)
 
 
