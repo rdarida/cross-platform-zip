@@ -1,6 +1,6 @@
 {
   "name": "cross-platform-zip",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Cross-platform zip/unzip for Node.js.",
   "keywords": [
     "zip",

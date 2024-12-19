@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.10](https://github.com/rdarida/cross-platform-zip/compare/v0.0.9...v0.0.10) (2024-12-19)
+
+
+### Features
+
+* check input arguments ([d8bf475](https://github.com/rdarida/cross-platform-zip/commit/d8bf475df297186ba4ece01993b7652772650f79))
+
 ### [0.0.9](https://github.com/rdarida/cross-platform-zip/compare/v0.0.8...v0.0.9) (2024-12-19)
 
 
