@@ -39,7 +39,7 @@ export function zipSync(path: string | string[], dest: string): void {
  * @param path Specifies the path to the archive file.
  * @param dest Specifies the path to the output folder.
  */
-export function unzipSync(path: string | string[], dest: string): void {
+export function unzipSync(path: string, dest: string): void {
   execFileSync(
     'powershell.exe',
     [

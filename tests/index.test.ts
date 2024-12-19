@@ -48,10 +48,6 @@ describe('Test exports', () => {
   });
 
   test('unzip "test data.zip" with unzipSync', () => {
-    if (process.platform !== 'win32') {
-      return;
-    }
-
     unzipSync(ZIP_DATA, DIST_FOLDER);
 
     let expected = readFileSync(TXT1_DATA);
