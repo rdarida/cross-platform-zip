@@ -4,8 +4,11 @@ import yargs from 'yargs';
 import { zipSync } from '.';
 
 (argv => {
-  zipSync(argv.path, argv.dest);
-  console.log(argv);
+  try {
+    zipSync(argv.path, argv.dest);
+  } catch (e: any) {
+    console.error(e);
+  }
 })(
   yargs
     .scriptName('cp-zip')
@@ -30,6 +33,13 @@ import { zipSync } from '.';
         describe: 'Specifies the path to the archive output file',
         type: 'string'
       }
+    })
+    .check(argv => {
+      if (Array.isArray(argv.dest)) {
+        throw new Error('The "--dest" parameter can only be specified once.');
+      }
+
+      return true;
     })
     .parseSync()
 );
