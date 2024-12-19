@@ -12,7 +12,7 @@ import { zipSync } from '.';
     .usage(
       [
         '$0 [options]',
-        'Creates a compressed archive, or zipped file, from specified files and directories.'
+        'Creates a compressed archive, or zipped file, from specified files and folders.'
       ].join('\n\n')
     )
     .help()
