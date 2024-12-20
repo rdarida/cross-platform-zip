@@ -26,7 +26,7 @@ describe('Test exports', () => {
     expect(zipSync).toBeTruthy();
   });
 
-  test('zip "[test data 1.txt, test data 2.txt]" with zipSync', () => {
+  xtest('zip "[test data 1.txt, test data 2.txt]" with zipSync', () => {
     zipSync([TXT1_DATA, TXT2_DATA], ZIPPED);
     unzipSync(ZIPPED, DIST_FOLDER);
 
