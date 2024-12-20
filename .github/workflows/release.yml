@@ -5,6 +5,7 @@ on:
     branches:
       - main
     paths:
+      - .github/workflows/**
       - src/**
 
 permissions:
@@ -32,6 +33,11 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Try zip
+        run: |
+          zip -r -y test.zip tsconfig.json package.json
+          ls -al
 
       - name: Test
         run: |
