@@ -36,8 +36,9 @@ jobs:
 
       - name: Try zip
         run: |
-          zip -r -y test.zip tsconfig.json package.json
-          ls -al
+          zip -r -y test.zip tsconfig.json tests/data
+          zip -sf test.zip
+          rm -rf test.zip
 
       - name: Test
         run: |
