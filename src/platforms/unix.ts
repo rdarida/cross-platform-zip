@@ -17,9 +17,9 @@ export function zipSync(path: string | string[], dest: string): void {
     path = [path];
   }
 
-  console.log(existsSync(`'${path[0]}'`));
-  console.log(existsSync(`'${path[1]}'`));
-  console.log(existsSync(`'${basename(dest)}'`));
+  console.log(existsSync(path[0]));
+  console.log(existsSync(path[1]));
+  console.log(existsSync(basename(dest)));
 
   execFileSync(
     'zip',
