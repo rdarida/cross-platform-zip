@@ -1,4 +1,5 @@
 import { execFileSync } from 'child_process';
+import { exec, which } from 'shelljs';
 
 /**
  * Creates a compressed archive, or zipped file,
@@ -11,25 +12,27 @@ import { execFileSync } from 'child_process';
  * @param dest Specifies the path to the archive output file.
  */
 export function zipSync(path: string | string[], dest: string): void {
+  check();
+
   if (!Array.isArray(path)) {
     path = [path];
   }
 
-  execFileSync(
-    'powershell.exe',
-    [
-      'Compress-Archive',
-      '-Path',
-      path.map(p => `"${p}"`).join(', '),
-      '-DestinationPath',
-      `"${dest}"`,
-      '-Force'
-    ],
-    {
-      maxBuffer: Infinity,
-      windowsHide: true
-    }
-  );
+  const args = [
+    'Compress-Archive',
+    '-Path',
+    path.map(p => `"${p}"`).join(', '),
+    '-DestinationPath',
+    `"${dest}"`,
+    '-Force'
+  ];
+
+  const options = {
+    maxBuffer: Infinity,
+    windowsHide: true
+  };
+
+  execFileSync('powershell.exe', args, options);
 }
 
 /**
@@ -40,19 +43,38 @@ export function zipSync(path: string | string[], dest: string): void {
  * @param dest Specifies the path to the output folder.
  */
 export function unzipSync(path: string, dest: string): void {
-  execFileSync(
+  check();
+
+  const args = [
+    'Expand-Archive',
+    '-Path',
+    `"${path}"`,
+    '-DestinationPath',
+    `"${dest}"`,
+    '-Force'
+  ];
+
+  const options = {
+    maxBuffer: Infinity,
+    windowsHide: true
+  };
+
+  execFileSync('powershell.exe', args, options);
+}
+
+function check(): void {
+  if (!which('powershell')) {
+    throw new Error('PowerShell is not installed or not found in the system.');
+  }
+
+  const command = [
     'powershell.exe',
-    [
-      'Expand-Archive',
-      '-Path',
-      `"${path}"`,
-      '-DestinationPath',
-      `"${dest}"`,
-      '-Force'
-    ],
-    {
-      maxBuffer: Infinity,
-      windowsHide: true
-    }
-  );
+    '$PSVersionTable.PSVersion.ToString()'
+  ].join(' ');
+
+  const psVersion = parseInt(exec(command, { silent: true }).toString()) || 0;
+
+  if (psVersion < 5) {
+    throw new Error('The installed PowerShell version is below 5');
+  }
 }

@@ -1,4 +1,5 @@
 import { execFileSync } from 'child_process';
+import { exec, which } from 'shelljs';
 import { basename, dirname } from 'path';
 
 /**
@@ -12,6 +13,10 @@ import { basename, dirname } from 'path';
  * @param dest Specifies the path to the archive output file.
  */
 export function zipSync(path: string | string[], dest: string): void {
+  if (!which('zip')) {
+    throw new Error('The zip is not installed or not found in the system.');
+  }
+
   if (!Array.isArray(path)) {
     path = [path];
   }
@@ -33,6 +38,10 @@ export function zipSync(path: string | string[], dest: string): void {
  * @param dest Specifies the path to the output folder.
  */
 export function unzipSync(path: string, dest: string): void {
+  if (!which('unzip')) {
+    throw new Error('The unzip is not installed or not found in the system.');
+  }
+
   execFileSync('unzip', ['-o', path, '-d', dest], {
     maxBuffer: Infinity,
     windowsHide: true
