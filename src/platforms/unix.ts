@@ -19,9 +19,8 @@ export function zipSync(path: string | string[], dest: string): void {
 
   execFileSync(
     'zip',
-    [dest, basename(path[0])],
+    [dest, ...path],
     {
-      cwd: dirname(path[0]),
       maxBuffer: Infinity,
       windowsHide: true,
     }
