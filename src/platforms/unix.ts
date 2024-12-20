@@ -22,11 +22,15 @@ export function zipSync(path: string | string[], dest: string): void {
   }
 
   for (const p of path) {
-    execFileSync('zip', ['-r', '-y', dest, basename(p)], {
+    const args = ['-r', '-y', dest, basename(p)];
+
+    const options = {
       cwd: dirname(p),
       maxBuffer: Infinity,
       windowsHide: true
-    });
+    };
+
+    execFileSync('zip', args, options);
   }
 }
 
@@ -42,8 +46,12 @@ export function unzipSync(path: string, dest: string): void {
     throw new Error('The unzip is not installed or not found in the system.');
   }
 
-  execFileSync('unzip', ['-o', path, '-d', dest], {
+  const args = ['-o', path, '-d', dest];
+
+  const options = {
     maxBuffer: Infinity,
     windowsHide: true
-  });
+  };
+
+  execFileSync('unzip', args, options);
 }
