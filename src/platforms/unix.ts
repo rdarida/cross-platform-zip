@@ -55,5 +55,5 @@ export function unzipSync(path: string, dest: string): void {
   };
 
   // execFileSync('unzip', args, options);
-  exec(`unzip -o ${path} -d ${dest}`, options);
+  exec(`unzip -o "${path}" -d "${dest}"`, options);
 }
