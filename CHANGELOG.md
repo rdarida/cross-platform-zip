@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.14](https://github.com/rdarida/cross-platform-zip/compare/v0.0.13...v0.0.14) (2024-12-20)
+
+
+### Bug Fixes
+
+* fix path parameters ([67f3b60](https://github.com/rdarida/cross-platform-zip/commit/67f3b60be284d9172bb5659ca968b2475b56551d))
+* try to fix unix.zipSync ([12445e6](https://github.com/rdarida/cross-platform-zip/commit/12445e609ad80cb6fcf60d8fcd553214414c135b))
+* use cwd in unix.zipSync ([c4c67d3](https://github.com/rdarida/cross-platform-zip/commit/c4c67d39fbe71005f476f95a52a16f09f16a31e1))
+
 ### [0.0.13](https://github.com/rdarida/cross-platform-zip/compare/v0.0.12...v0.0.13) (2024-12-20)
 
 
