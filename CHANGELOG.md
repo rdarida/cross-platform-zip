@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.22](https://github.com/rdarida/cross-platform-zip/compare/v0.0.21...v0.0.22) (2024-12-20)
+
+
+### Features
+
+* improve error messages for missing dependencies ([bf94e61](https://github.com/rdarida/cross-platform-zip/commit/bf94e6118ae9793ea68187deef00c627e88daa7c))
+
 ### [0.0.21](https://github.com/rdarida/cross-platform-zip/compare/v0.0.20...v0.0.21) (2024-12-20)
 
 ### [0.0.20](https://github.com/rdarida/cross-platform-zip/compare/v0.0.19...v0.0.20) (2024-12-20)
