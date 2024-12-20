@@ -50,8 +50,10 @@ export function unzipSync(path: string, dest: string): void {
 
   const options = {
     maxBuffer: Infinity,
+    silent: true,
     windowsHide: true
   };
 
-  execFileSync('unzip', args, options);
+  // execFileSync('unzip', args, options);
+  exec(`unzip -o ${path} -d ${dest}`, options);
 }
