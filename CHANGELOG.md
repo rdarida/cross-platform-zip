@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.13](https://github.com/rdarida/cross-platform-zip/compare/v0.0.12...v0.0.13) (2024-12-20)
+
+
+### Bug Fixes
+
+* remove -r option ([1c69bfb](https://github.com/rdarida/cross-platform-zip/commit/1c69bfb714da3c8e50bac7b13b2c8bfef3ea55b8))
+* set destination to cwd ([f265690](https://github.com/rdarida/cross-platform-zip/commit/f2656907a619e6344169d78f3add7ca7ac7631a4))
+* use zip without -y option ([b9d99fe](https://github.com/rdarida/cross-platform-zip/commit/b9d99fe1a58520c4614276820d4a86a16558f48e))
+
 ### [0.0.12](https://github.com/rdarida/cross-platform-zip/compare/v0.0.11...v0.0.12) (2024-12-20)
 
 
