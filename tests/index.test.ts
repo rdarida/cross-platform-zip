@@ -4,9 +4,9 @@ import { mkdirSync, readFileSync } from 'fs';
 
 import { zipSync, unzipSync } from '../src/index';
 
-const TXT1 = 'test_data_1.txt';
-const TXT2 = 'test_data_2.txt';
-const ZIP = 'test_data.zip';
+const TXT1 = 'test data 1.txt';
+const TXT2 = 'test data 2.txt';
+const ZIP = 'test data.zip';
 const DATA = resolve(__dirname, 'data');
 const TXT1_DATA = join(DATA, TXT1);
 const TXT2_DATA = join(DATA, TXT2);
@@ -26,7 +26,7 @@ describe('Test exports', () => {
     expect(zipSync).toBeTruthy();
   });
 
-  test('zip "[test_data_1.txt, test_data_2.txt]" with zipSync', () => {
+  test('zip "[test data 1.txt, test data 2.txt]" with zipSync', () => {
     zipSync([TXT1_DATA, TXT2_DATA], ZIPPED);
     unzipSync(ZIPPED, DIST_FOLDER);
 
