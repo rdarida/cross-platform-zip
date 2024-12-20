@@ -15,9 +15,11 @@ export function zipSync(path: string | string[], dest: string): void {
     path = [path];
   }
 
+  console.log(dest);
+
   execFileSync(
     'zip',
-    ['-r', '-y', `"${dest}"`, path.map(p => `"${p}"`).join(' ')],
+    ['-r', '-y', dest, path.join(' ')],
     {
       maxBuffer: Infinity,
       windowsHide: true
@@ -33,6 +35,8 @@ export function zipSync(path: string | string[], dest: string): void {
  * @param dest Specifies the path to the output folder.
  */
 export function unzipSync(path: string, dest: string): void {
+  console.log(path);
+
   execFileSync('unzip', ['-o', path, '-d', dest], {
     maxBuffer: Infinity,
     windowsHide: true
