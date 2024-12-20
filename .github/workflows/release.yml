@@ -36,7 +36,7 @@ jobs:
 
       - name: Try zip
         run: |
-          zip -r -y test.zip tsconfig.json tests/data
+          zip -r -y test.zip src/index.ts "tests/data/test data 1.txt"
           zip -sf test.zip
           rm -rf test.zip
 
