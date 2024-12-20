@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.15](https://github.com/rdarida/cross-platform-zip/compare/v0.0.14...v0.0.15) (2024-12-20)
+
+
+### Bug Fixes
+
+* try to add two files to the zip ([87a745d](https://github.com/rdarida/cross-platform-zip/commit/87a745d6bfbc36ce926c36178811440173188d5a))
+
 ### [0.0.14](https://github.com/rdarida/cross-platform-zip/compare/v0.0.13...v0.0.14) (2024-12-20)
 
 
