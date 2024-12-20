@@ -1,5 +1,5 @@
 import { execFileSync } from 'child_process';
-import { existsSync } from 'fs';
+import { basename, dirname } from 'path';
 
 /**
  * Creates a compressed archive, or zipped file,
@@ -16,14 +16,13 @@ export function zipSync(path: string | string[], dest: string): void {
     path = [path];
   }
 
-  console.log(path[0], '\n', existsSync(path[0]));
-
   execFileSync(
     'zip',
-    [dest, path.join(' ')],
+    [basename(dest), path.join(' ')],
     {
+      cwd: dirname(dest),
       maxBuffer: Infinity,
-      windowsHide: true
+      windowsHide: true,
     }
   );
 }
