@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.12](https://github.com/rdarida/cross-platform-zip/compare/v0.0.11...v0.0.12) (2024-12-20)
+
+
+### Features
+
+* implement zip for unix platform ([9121f98](https://github.com/rdarida/cross-platform-zip/commit/9121f98a3166e4195f71475eab15123e1e86c4a8))
+
 ### [0.0.11](https://github.com/rdarida/cross-platform-zip/compare/v0.0.10...v0.0.11) (2024-12-19)
 
 
