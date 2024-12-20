@@ -43,10 +43,12 @@
     "docs": "typedoc --out docs --exclude \"src/cli.ts\" src"
   },
   "dependencies": {
+    "shelljs": "^0.8.5",
     "yargs": "^17.7.2"
   },
   "devDependencies": {
     "@types/jest": "^29.5.14",
+    "@types/shelljs": "^0.8.15",
     "@types/yargs": "^17.0.33",
     "jest": "^29.7.0",
     "jest-config": "^29.7.0",
