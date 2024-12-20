@@ -6,7 +6,6 @@ on:
       - main
     paths:
       - src/**
-      - tests/**
 
 permissions:
   contents: write
@@ -36,7 +35,6 @@ jobs:
 
       - name: Test
         run: |
-          zip -h
           npm run lint
           npm test -- --collectCoverage
 

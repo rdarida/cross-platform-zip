@@ -1,5 +1,4 @@
 import { execFileSync } from 'child_process';
-import { existsSync } from 'fs';
 import { basename, dirname } from 'path';
 
 /**
@@ -18,15 +17,11 @@ export function zipSync(path: string | string[], dest: string): void {
   }
 
   for (const p of path) {
-    execFileSync(
-      'zip',
-      ['-r', '-y', dest, basename(p)],
-      {
-        cwd: dirname(p),
-        maxBuffer: Infinity,
-        windowsHide: true,
-      }
-    );
+    execFileSync('zip', ['-r', '-y', dest, basename(p)], {
+      cwd: dirname(p),
+      maxBuffer: Infinity,
+      windowsHide: true
+    });
   }
 }
 
