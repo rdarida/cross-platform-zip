@@ -17,11 +17,13 @@ export function zipSync(path: string | string[], dest: string): void {
     path = [path];
   }
 
+  const cwd = process.cwd();
+
   execFileSync(
     'zip',
-    [dest, basename(path[0]), path[1]],
+    [dest, ...path.map(p => p.replace(cwd, ''))],
     {
-      cwd: dirname(path[0]),
+      cwd,
       maxBuffer: Infinity,
       windowsHide: true,
     }
