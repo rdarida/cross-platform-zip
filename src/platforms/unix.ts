@@ -1,4 +1,5 @@
 import { execFileSync } from 'child_process';
+import { existsSync } from 'fs';
 
 /**
  * Creates a compressed archive, or zipped file,
@@ -15,7 +16,7 @@ export function zipSync(path: string | string[], dest: string): void {
     path = [path];
   }
 
-  console.log(dest);
+  console.log(dest, '\n', existsSync(dest));
 
   execFileSync(
     'zip',
@@ -35,8 +36,6 @@ export function zipSync(path: string | string[], dest: string): void {
  * @param dest Specifies the path to the output folder.
  */
 export function unzipSync(path: string, dest: string): void {
-  console.log(path);
-
   execFileSync('unzip', ['-o', path, '-d', dest], {
     maxBuffer: Infinity,
     windowsHide: true
