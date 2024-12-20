@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.24](https://github.com/rdarida/cross-platform-zip/compare/v0.0.23...v0.0.24) (2024-12-20)
+
+
+### Features
+
+* use shelljs.exec in unix.unzipSync ([ed59d7f](https://github.com/rdarida/cross-platform-zip/commit/ed59d7f6da3ff24087751f9ac4a732c766b3b85c))
+
+
+### Bug Fixes
+
+* quote params of unzip ([f6d55e1](https://github.com/rdarida/cross-platform-zip/commit/f6d55e19cef69616c734a273332da3c1cc37a886))
+
 ### [0.0.23](https://github.com/rdarida/cross-platform-zip/compare/v0.0.22...v0.0.23) (2024-12-20)
 
 ### [0.0.22](https://github.com/rdarida/cross-platform-zip/compare/v0.0.21...v0.0.22) (2024-12-20)
