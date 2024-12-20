@@ -17,17 +17,11 @@ export function zipSync(path: string | string[], dest: string): void {
     path = [path];
   }
 
-  console.log(existsSync(path[0]));
-  console.log(existsSync(path[1]));
-  console.log(dest);
-  console.log(dirname(dest));
-  console.log(existsSync(dirname(dest)));
-
   execFileSync(
     'zip',
-    [basename(dest), path.join(' ')],
+    [dest, basename(path[0])],
     {
-      cwd: dirname(dest),
+      cwd: dirname(path[0]),
       maxBuffer: Infinity,
       windowsHide: true,
     }
