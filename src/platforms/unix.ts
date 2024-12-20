@@ -19,7 +19,7 @@ export function zipSync(path: string | string[], dest: string): void {
 
   execFileSync(
     'zip',
-    [`"${dest}"`, ...path.map(p => `"${p}"`)],
+    [dest, path[0]],
     {
       maxBuffer: Infinity,
       windowsHide: true,
