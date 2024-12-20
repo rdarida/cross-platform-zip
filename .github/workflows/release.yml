@@ -36,6 +36,8 @@ jobs:
 
       - name: Test
         run: |
+          which zip
+          which unzip
           npm run lint
           npm test -- --collectCoverage
 
