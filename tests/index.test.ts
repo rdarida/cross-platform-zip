@@ -27,16 +27,16 @@ describe('Test exports', () => {
   });
 
   test('zip "[test_data_1.txt, test_data_2.txt]" with zipSync', () => {
-    zipSync(TXT1_DATA, ZIPPED);
+    zipSync([TXT1_DATA, TXT2_DATA], ZIPPED);
     unzipSync(ZIPPED, DIST_FOLDER);
 
     let expected = readFileSync(TXT1_DATA);
     let actual = readFileSync(UNZIPPED1);
     expect(actual).toEqual(expected);
 
-    // expected = readFileSync(TXT2_DATA);
-    // actual = readFileSync(UNZIPPED2);
-    // expect(actual).toEqual(expected);
+    expected = readFileSync(TXT2_DATA);
+    actual = readFileSync(UNZIPPED2);
+    expect(actual).toEqual(expected);
   });
 
   test('unzipSync should be exported', () => {
