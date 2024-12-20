@@ -33,7 +33,7 @@ export function zipSync(path: string | string[], dest: string): void {
  * @param dest Specifies the path to the output folder.
  */
 export function unzipSync(path: string, dest: string): void {
-  execFileSync('unzip', ['-o', `"${path}"`, '-d', `"${dest}"`], {
+  execFileSync('unzip', ['-o', path, '-d', dest], {
     maxBuffer: Infinity,
     windowsHide: true
   });
