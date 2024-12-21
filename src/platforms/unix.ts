@@ -1,5 +1,5 @@
 import { exec, which } from 'shelljs';
-// import { basename, dirname } from 'path';
+import { basename, dirname } from 'path';
 
 /**
  * Creates a compressed archive, or zipped file,
@@ -20,32 +20,16 @@ export function zipSync(path: string | string[], dest: string): void {
     path = [path];
   }
 
-  const command = [
-    'zip',
-    '-r',
-    '-y',
-    `'${dest}'`,
-    ...path.map(p => `'${p}'`)
-  ].join(' ');
+  for (const p of path) {
+    const options = {
+      cwd: dirname(p),
+      maxBuffer: Infinity,
+      silent: true,
+      windowsHide: true
+    };
 
-  const options = {
-    maxBuffer: Infinity,
-    silent: true,
-    windowsHide: true
-  };
-
-  exec(command, options);
-
-  // for (const p of path) {
-  //   const options = {
-  //     cwd: dirname(p),
-  //     maxBuffer: Infinity,
-  //     silent: true,
-  //     windowsHide: true
-  //   };
-
-  //   exec(`zip -r -y "${dest}" "${basename(p)}"`, options);
-  // }
+    exec(`zip -r -y "${dest}" "${basename(p)}"`, options);
+  }
 }
 
 /**
