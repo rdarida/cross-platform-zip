@@ -26,7 +26,9 @@ export function zipSync(path: string | string[], dest: string): void {
     windowsHide: true
   };
 
-  exec(`zip -r -y "${dest}" ${path.map(p => `"${p}"`).join(' ')}`, options);
+  const command = `zip -r -y "${dest}" ${path.map(p => `"${p}"`).join(' ')}`;
+  console.log(command);
+  exec(command, options);
 }
 
 /**
