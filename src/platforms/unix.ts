@@ -1,6 +1,8 @@
 import { exec, which } from 'shelljs';
 import { basename, dirname } from 'path';
 
+import { MissingUtilityError } from './MissingUtilityError';
+
 /**
  * Creates a compressed archive, or zipped file,
  * from specified files and folders.
@@ -13,7 +15,7 @@ import { basename, dirname } from 'path';
  */
 export function zipSync(dest: string, ...path: string[]): void {
   if (!which('zip')) {
-    throw new Error('The zip is not installed or not found in the system.');
+    throw new MissingUtilityError('zip');
   }
 
   for (const p of path) {
@@ -38,7 +40,7 @@ export function zipSync(dest: string, ...path: string[]): void {
  */
 export function unzipSync(src: string, dest: string): void {
   if (!which('unzip')) {
-    throw new Error('The unzip is not installed or not found in the system.');
+    throw new MissingUtilityError('unzip');
   }
 
   const options = {

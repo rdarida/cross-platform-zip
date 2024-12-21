@@ -1,5 +1,7 @@
 import { exec, which } from 'shelljs';
 
+import { MissingUtilityError } from './MissingUtilityError';
+
 /**
  * Creates a compressed archive, or zipped file,
  * from specified files and folders.
@@ -64,7 +66,7 @@ export function unzipSync(src: string, dest: string): void {
 
 function check(): void {
   if (!which('powershell')) {
-    throw new Error('PowerShell is not installed or not found in the system.');
+    throw new MissingUtilityError('poweshell');
   }
 
   const command = [
