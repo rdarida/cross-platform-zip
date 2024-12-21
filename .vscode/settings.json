@@ -8,7 +8,7 @@
     "**/Thumbs.db": true,
     // Directories
     "coverage": true,
-    "dist": true,
+    "**/dist": true,
     "docs": true,
     "node_modules": true,
     // Files
