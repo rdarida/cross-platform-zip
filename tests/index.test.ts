@@ -6,18 +6,15 @@ import { zipSync, unzipSync } from '../src/index';
 
 const TXT1 = 'test data 1.txt';
 const TXT2 = 'test data 2.txt';
-const ZIP1 = 'test data 1.zip';
-const ZIP2 = 'test data 2.zip';
+const ZIP = 'test data.zip';
 const DATA = resolve(__dirname, 'data');
 const TXT1_DATA = join(DATA, TXT1);
 const TXT2_DATA = join(DATA, TXT2);
-const ZIP1_DATA = join(DATA, ZIP1);
-const ZIP2_DATA = join(DATA, ZIP2);
+const ZIP_DATA = join(DATA, ZIP);
 const DIST_FOLDER = resolve(__dirname, 'dist');
 const UNZIPPED1 = join(DIST_FOLDER, TXT1);
 const UNZIPPED2 = join(DIST_FOLDER, TXT2);
-const ZIPPED1 = join(DIST_FOLDER, ZIP1);
-const ZIPPED2 = join(DIST_FOLDER, ZIP2);
+const ZIPPED = join(DIST_FOLDER, ZIP);
 
 describe('Test exports', () => {
   beforeEach(() => {
@@ -30,18 +27,24 @@ describe('Test exports', () => {
   });
 
   test('zip "test data 1.txt" with zipSync', () => {
-    zipSync(TXT1_DATA, ZIPPED1);
+    zipSync(TXT1_DATA, ZIPPED);
+    unzipSync(ZIPPED, DIST_FOLDER);
 
-    const expected = readFileSync(ZIP1_DATA);
-    const actual = readFileSync(ZIPPED1);
+    const expected = readFileSync(TXT1_DATA);
+    const actual = readFileSync(UNZIPPED1);
     expect(actual).toEqual(expected);
   });
 
   test('zip "[test data 1.txt, test data 2.txt]" with zipSync', () => {
-    zipSync([TXT1_DATA, TXT2_DATA], ZIPPED2);
+    zipSync([TXT1_DATA, TXT2_DATA], ZIPPED);
+    unzipSync(ZIPPED, DIST_FOLDER);
 
-    const expected = readFileSync(ZIP2_DATA);
-    const actual = readFileSync(ZIPPED2);
+    let expected = readFileSync(TXT1_DATA);
+    let actual = readFileSync(UNZIPPED1);
+    expect(actual).toEqual(expected);
+
+    expected = readFileSync(TXT2_DATA);
+    actual = readFileSync(UNZIPPED2);
     expect(actual).toEqual(expected);
   });
 
@@ -50,7 +53,7 @@ describe('Test exports', () => {
   });
 
   test('unzip "test data.zip" with unzipSync', () => {
-    unzipSync(ZIP2_DATA, DIST_FOLDER);
+    unzipSync(ZIP_DATA, DIST_FOLDER);
 
     let expected = readFileSync(TXT1_DATA);
     let actual = readFileSync(UNZIPPED1);
