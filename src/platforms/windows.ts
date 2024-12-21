@@ -5,26 +5,22 @@ import { exec, which } from 'shelljs';
  * from specified files and folders.
  * This is a wrapper function for Compress-Archive.
  *
+ * @param dest Specifies the path to the archive output file.
+ *
  * @param path Specifies the path or paths to the files
  *             to add to the archive zipped file.
- *
- * @param dest Specifies the path to the archive output file.
  */
-export function zipSync(path: string | string[], dest: string): void {
+export function zipSync(dest: string, ...path: string[]): void {
   check();
-
-  if (!Array.isArray(path)) {
-    path = [path];
-  }
 
   const command = [
     'powershell.exe',
     'Compress-Archive',
-    '-Path',
-    path.map(p => `'${p}'`).join(', '),
+    '-Force',
     '-DestinationPath',
     `'${dest}'`,
-    '-Force'
+    '-Path',
+    path.map(p => `'${p}'`).join(', ')
   ].join(' ');
 
   const options = {
@@ -40,20 +36,21 @@ export function zipSync(path: string | string[], dest: string): void {
  * Extracts files from a specified archive (zipped) file.
  * This is a wrapper function for Expand-Archive.
  *
- * @param path Specifies the path to the archive file.
+ * @param src Specifies the path to the archive file.
+ *
  * @param dest Specifies the path to the output folder.
  */
-export function unzipSync(path: string, dest: string): void {
+export function unzipSync(src: string, dest: string): void {
   check();
 
   const command = [
     'powershell.exe',
     'Expand-Archive',
+    '-Force',
     '-Path',
-    `'${path}'`,
+    `'${src}'`,
     '-DestinationPath',
-    `'${dest}'`,
-    '-Force'
+    `'${dest}'`
   ].join(' ');
 
   const options = {
