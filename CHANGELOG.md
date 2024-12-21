@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.34](https://github.com/rdarida/cross-platform-zip/compare/v0.0.33...v0.0.34) (2024-12-21)
+
+
+### Features
+
+* implement MissingUtilityError class ([f72f5a7](https://github.com/rdarida/cross-platform-zip/commit/f72f5a74e38ce706489bd4a038b2fa1a8469cc11))
+
 ### [0.0.33](https://github.com/rdarida/cross-platform-zip/compare/v0.0.32...v0.0.33) (2024-12-21)
 
 ### [0.0.32](https://github.com/rdarida/cross-platform-zip/compare/v0.0.31...v0.0.32) (2024-12-21)
