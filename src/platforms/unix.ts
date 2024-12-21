@@ -50,5 +50,5 @@ export function unzipSync(path: string, dest: string): void {
     windowsHide: true
   };
 
-  exec(`unzip -o "${path}" -d "${dest}"`, options);
+  exec(`unzip -o '${path}' -d '${dest}'`, options);
 }
