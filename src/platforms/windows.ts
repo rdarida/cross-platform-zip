@@ -1,4 +1,3 @@
-import { execFileSync } from 'child_process';
 import { exec, which } from 'shelljs';
 
 /**
@@ -18,21 +17,23 @@ export function zipSync(path: string | string[], dest: string): void {
     path = [path];
   }
 
-  const args = [
+  const command = [
+    'powershell.exe',
     'Compress-Archive',
     '-Path',
-    path.map(p => `"${p}"`).join(', '),
+    path.map(p => `'${p}'`).join(', '),
     '-DestinationPath',
-    `"${dest}"`,
+    `'${dest}'`,
     '-Force'
-  ];
+  ].join(' ');
 
   const options = {
     maxBuffer: Infinity,
+    silent: true,
     windowsHide: true
   };
 
-  execFileSync('powershell.exe', args, options);
+  exec(command, options);
 }
 
 /**
@@ -45,21 +46,23 @@ export function zipSync(path: string | string[], dest: string): void {
 export function unzipSync(path: string, dest: string): void {
   check();
 
-  const args = [
+  const command = [
+    'powershell.exe',
     'Expand-Archive',
     '-Path',
-    `"${path}"`,
+    `'${path}'`,
     '-DestinationPath',
-    `"${dest}"`,
+    `'${dest}'`,
     '-Force'
-  ];
+  ].join(' ');
 
   const options = {
     maxBuffer: Infinity,
+    silent: true,
     windowsHide: true
   };
 
-  execFileSync('powershell.exe', args, options);
+  exec(command, options);
 }
 
 function check(): void {
