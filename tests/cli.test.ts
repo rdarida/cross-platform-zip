@@ -26,16 +26,12 @@ function zip(paths: string[], dest: string): void {
 }
 
 function unzip(src: string, dest: string): void {
-  const command = [
-    'node dist/unzip-cli.js',
-    `"${src}"`,
-    `"${dest}"`
-  ].join(' ');
+  const command = ['node dist/unzip-cli.js', `"${src}"`, `"${dest}"`].join(' ');
 
   execSync(command, { cwd: process.cwd() });
 }
 
-describe('Test exports', () => {
+describe('Test cli', () => {
   beforeEach(() => {
     rimraf(DIST_FOLDER);
     mkdirSync(DIST_FOLDER);
