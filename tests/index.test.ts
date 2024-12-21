@@ -1,6 +1,7 @@
 import { join, resolve } from 'path';
 import { sync as rimraf } from 'rimraf';
 import { mkdirSync, readFileSync } from 'fs';
+import { execSync } from 'child_process';
 
 import { zipSync, unzipSync } from '../src/index';
 
@@ -16,6 +17,26 @@ const UNZIPPED1 = join(DIST_FOLDER, TXT1);
 const UNZIPPED2 = join(DIST_FOLDER, TXT2);
 const ZIPPED = join(DIST_FOLDER, ZIP);
 
+function zip(paths: string[], dest: string): void {
+  const command = [
+    'node dist/zip-cli.js',
+    `"${dest}"`,
+    ...paths.map(p => `"${p}"`)
+  ].join(' ');
+
+  execSync(command, { cwd: process.cwd() });
+}
+
+function unzip(src: string, dest: string): void {
+  const command = [
+    'node dist/unzip-cli.js',
+    `"${src}"`,
+    `"${dest}"`
+  ].join(' ');
+
+  execSync(command, { cwd: process.cwd() });
+}
+
 describe('Test exports', () => {
   beforeEach(() => {
     rimraf(DIST_FOLDER);
@@ -27,8 +48,8 @@ describe('Test exports', () => {
   });
 
   test('zip "[test data 1.txt]" with zipSync', () => {
-    zipSync([TXT1_DATA], ZIPPED);
-    unzipSync(ZIPPED, DIST_FOLDER);
+    zip([TXT1_DATA], ZIPPED);
+    unzip(ZIPPED, DIST_FOLDER);
 
     const expected = readFileSync(TXT1_DATA);
     const actual = readFileSync(UNZIPPED1);
@@ -36,8 +57,8 @@ describe('Test exports', () => {
   });
 
   test('zip "[test data 1.txt, test data 2.txt]" with zipSync', () => {
-    zipSync([TXT1_DATA, TXT2_DATA], ZIPPED);
-    unzipSync(ZIPPED, DIST_FOLDER);
+    zip([TXT1_DATA, TXT2_DATA], ZIPPED);
+    unzip(ZIPPED, DIST_FOLDER);
 
     let expected = readFileSync(TXT1_DATA);
     let actual = readFileSync(UNZIPPED1);
@@ -53,7 +74,7 @@ describe('Test exports', () => {
   });
 
   test('unzip "test data.zip" with unzipSync', () => {
-    unzipSync(ZIP_DATA, DIST_FOLDER);
+    unzip(ZIP_DATA, DIST_FOLDER);
 
     let expected = readFileSync(TXT1_DATA);
     let actual = readFileSync(UNZIPPED1);
