@@ -20,16 +20,13 @@ export function zipSync(path: string | string[], dest: string): void {
     path = [path];
   }
 
-  for (const p of path) {
-    const options = {
-      cwd: dirname(p),
-      maxBuffer: Infinity,
-      silent: true,
-      windowsHide: true
-    };
+  const options = {
+    maxBuffer: Infinity,
+    silent: true,
+    windowsHide: true
+  };
 
-    exec(`zip -r -y "${dest}" "${basename(p)}"`, options);
-  }
+  exec(`zip -r -y "${dest}" ${path.map(p => `"${p}"`).join(' ')}`, options);
 }
 
 /**
