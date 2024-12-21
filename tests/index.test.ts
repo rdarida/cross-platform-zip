@@ -43,7 +43,7 @@ describe('Test exports', () => {
     expect(unzipSync).toBeTruthy();
   });
 
-  test('unzip "test_data.zip" with unzipSync', () => {
+  test('unzip "test data.zip" with unzipSync', () => {
     unzipSync(ZIP_DATA, DIST_FOLDER);
 
     let expected = readFileSync(TXT1_DATA);
