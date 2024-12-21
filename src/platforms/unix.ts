@@ -1,4 +1,3 @@
-import { execFileSync } from 'child_process';
 import { exec, which } from 'shelljs';
 import { basename, dirname } from 'path';
 
@@ -22,8 +21,6 @@ export function zipSync(path: string | string[], dest: string): void {
   }
 
   for (const p of path) {
-    // const args = ['-r', '-y', dest, basename(p)];
-
     const options = {
       cwd: dirname(p),
       maxBuffer: Infinity,
@@ -31,7 +28,6 @@ export function zipSync(path: string | string[], dest: string): void {
       windowsHide: true
     };
 
-    // execFileSync('zip', args, options);
     exec(`zip -r -y "${dest}" "${basename(p)}"`, options);
   }
 }
