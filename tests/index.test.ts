@@ -26,8 +26,8 @@ describe('Test exports', () => {
     expect(zipSync).toBeTruthy();
   });
 
-  test('zip "test data 1.txt" with zipSync', () => {
-    zipSync(ZIPPED, TXT1_DATA);
+  test('zip "[test data 1.txt]" with zipSync', () => {
+    zipSync([TXT1_DATA], ZIPPED);
     unzipSync(ZIPPED, DIST_FOLDER);
 
     const expected = readFileSync(TXT1_DATA);
@@ -36,7 +36,7 @@ describe('Test exports', () => {
   });
 
   test('zip "[test data 1.txt, test data 2.txt]" with zipSync', () => {
-    zipSync(ZIPPED, TXT1_DATA, TXT2_DATA);
+    zipSync([TXT1_DATA, TXT2_DATA], ZIPPED);
     unzipSync(ZIPPED, DIST_FOLDER);
 
     let expected = readFileSync(TXT1_DATA);

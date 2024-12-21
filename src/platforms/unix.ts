@@ -8,17 +8,17 @@ import { MissingUtilityError } from './MissingUtilityError';
  * from specified files and folders.
  * This is a wrapper function for zip.
  *
- * @param dest Specifies the path to the archive output file.
- *
- * @param path Specifies the path or paths to the files
+ * @param paths Specifies the path or paths to the files
  *             to add to the archive zipped file.
+ *
+ * @param dest Specifies the path to the archive output file.
  */
-export function zipSync(dest: string, ...path: string[]): void {
+export function zipSync(paths: string[], dest: string): void {
   if (!which('zip')) {
     throw new MissingUtilityError('zip');
   }
 
-  for (const p of path) {
+  for (const p of paths) {
     const options = {
       cwd: dirname(p),
       maxBuffer: Infinity,

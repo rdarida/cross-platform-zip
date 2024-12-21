@@ -5,19 +5,19 @@ import { zipSync } from '.';
 
 type Args = {
   destination: string;
-  path: string[];
+  paths: string[];
 };
 
 yargs
   .scriptName('cp-zip')
-  .usage('$0 <destination> <path...>')
+  .usage('$0 <destination> <paths...>')
   .example(
     '$0 dest.zip folder file1 file2.txt',
     'Creates a compressed archive, or zipped file, from specified files and folders.'
   )
   .help()
   .command<Args>(
-    '$0 <destination> <path...>',
+    '$0 <destination> <paths...>',
     'Creates a compressed archive, or zipped file, from specified files and folders.',
     yargs => {
       yargs
@@ -26,17 +26,17 @@ yargs
           describe: 'Specifies the path to the archive output file',
           type: 'string'
         })
-        .positional('path', {
+        .positional('paths', {
           demandOption: true,
           describe:
-            'Specifies the path(s) to the file(s) to add to the archive zipped file',
+            'Specifies the paths to the files to add to the archive zipped file',
           type: 'string',
           array: true
         });
     },
     args => {
       try {
-        zipSync(args.destination, ...args.path);
+        zipSync(args.paths, args.destination);
       } catch (e: any) {
         console.error(e);
       }

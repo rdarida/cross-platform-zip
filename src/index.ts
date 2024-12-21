@@ -4,21 +4,21 @@ import { unix, windows } from './platforms';
  * Creates a compressed archive, or zipped file,
  * from specified files and folders.
  *
- * @param dest Specifies the path to the archive output file.
- *
- * @param path Specifies the path or paths to the files
+ * @param paths Specifies the path or paths to the files
  *             to add to the archive zipped file.
+ *
+ * @param dest Specifies the path to the archive output file.
  */
-export function zipSync(dest: string, ...path: string[]): void {
+export function zipSync(paths: string[], dest: string): void {
   switch (process.platform) {
     case 'win32': {
-      windows.zipSync(dest, ...path);
+      windows.zipSync(paths, dest);
       break;
     }
 
     case 'darwin':
     case 'linux': {
-      unix.zipSync(dest, ...path);
+      unix.zipSync(paths, dest);
       break;
     }
 
