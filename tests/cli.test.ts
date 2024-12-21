@@ -1,7 +1,8 @@
 import { join, resolve } from 'path';
 import { sync as rimraf } from 'rimraf';
 import { mkdirSync, readFileSync } from 'fs';
-import { execSync } from 'child_process';
+
+import { zip, unzip } from './helpers';
 
 const TXT1 = 'test data 1.txt';
 const TXT2 = 'test data 2.txt';
@@ -14,22 +15,6 @@ const DIST_FOLDER = resolve(__dirname, 'dist');
 const UNZIPPED1 = join(DIST_FOLDER, TXT1);
 const UNZIPPED2 = join(DIST_FOLDER, TXT2);
 const ZIPPED = join(DIST_FOLDER, ZIP);
-
-function zip(paths: string[], dest: string): void {
-  const command = [
-    'node dist/zip-cli.js',
-    `"${dest}"`,
-    ...paths.map(p => `"${p}"`)
-  ].join(' ');
-
-  execSync(command, { cwd: process.cwd() });
-}
-
-function unzip(src: string, dest: string): void {
-  const command = ['node dist/unzip-cli.js', `"${src}"`, `"${dest}"`].join(' ');
-
-  execSync(command, { cwd: process.cwd() });
-}
 
 describe('Test cli', () => {
   beforeEach(() => {
