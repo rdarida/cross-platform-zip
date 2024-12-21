@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.30](https://github.com/rdarida/cross-platform-zip/compare/v0.0.29...v0.0.30) (2024-12-21)
+
+
+### Features
+
+* revert previous changes ([6ca8a2e](https://github.com/rdarida/cross-platform-zip/commit/6ca8a2e2aff3a1065bcbc5ad499c99c3414f8d11))
+* revert previous changes ([a95a445](https://github.com/rdarida/cross-platform-zip/commit/a95a4455191da6edb8be100d977a450fba7b9f3c))
+* use single quote instead of double quote ([57d473c](https://github.com/rdarida/cross-platform-zip/commit/57d473c2e1cd43b6a6067a776605f187fdc264c8))
+
 ### [0.0.29](https://github.com/rdarida/cross-platform-zip/compare/v0.0.28...v0.0.29) (2024-12-21)
 
 
